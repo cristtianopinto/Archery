@@ -12,6 +12,7 @@ namespace Archery.Models
         public DateTime CreatedDate { get; set; }
 
         public string ContactMail { get; set; }
+
         //!!!liesont entre le view et ceux modeles - binding
     }
 }
