@@ -49,6 +49,7 @@
                         *@
                         <a href="@Url.RouteUrl("AboutRoute")">A propos</a>
                     </li>
+                    @*
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -79,16 +80,17 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Separated link</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
     <div class="container">
-        <p>@Html.</p>
+        
         @RenderBody()
     </div>
-    <footer class="panel-footer">
+    <footer class="panel-footer" style="position: absolute;bottom: 0;">
         &copy; 2018
     </footer>
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
