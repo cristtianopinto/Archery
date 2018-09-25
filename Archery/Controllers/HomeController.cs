@@ -12,12 +12,13 @@ namespace Archery.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Title = "Index";
             return View();
         }
 
         [Route("a-propos")]
         public ActionResult About()
-        {
+        {            
             var modelInfo = new Info
             {
                 DevName = "PINTO",
