@@ -17,7 +17,7 @@ namespace Archery.Controllers
         }
         // POST: Archer
         [HttpPost]
-        public ActionResult Subscribe(string email)
+        public ActionResult Subscribe(Archer archer)
         {
             
             return View();
