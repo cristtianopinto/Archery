@@ -8,30 +8,49 @@ namespace Archery.Validators
 {
     [AttributeUsage(AttributeTargets.Property)]// por so utiliza-lo em propriedades
     public class Age : ValidationAttribute
-    {        
+    {
         public int MinimumAge { get; private set; }
+
+        private int? maximumAge;
+
+        public int MaximumAge
+        {
+            get { return (int)maximumAge; }
+            set { maximumAge = value; }
+        }
+
+
         public Age(int minimumAge)
         {
             this.MinimumAge = minimumAge;
         }
+
+
         public override bool IsValid(object value)
         {
             //3
             if (value is DateTime)
             {
-
-                return (DateTime.Now.AddYears(-this.MinimumAge) >= (DateTime)value);
-
+                if(this.maximumAge == null)
+                {
+                    return (DateTime.Now.AddYears(-this.MinimumAge) >= (DateTime)value);
+                }
+                else
+                {
+                    return (DateTime.Now.AddYears(-this.MinimumAge) >= (DateTime)value
+                                        && (((DateTime)value).AddYears(this.MaximumAge) >= DateTime.Now));
+                }
+                
             }
             else
             {
                 throw new ArgumentException("Le type doit être un DateTime");
-            }                
-           
+            }
+
         }
         public override string FormatErrorMessage(string name)
         {
-            return string.Format(this.ErrorMessage,name,this.MinimumAge.ToString());
+            return string.Format(this.ErrorMessage,name,this.MinimumAge.ToString(), this.MaximumAge.ToString());
         }
 
     }

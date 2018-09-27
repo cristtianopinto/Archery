@@ -46,7 +46,7 @@ namespace Archery.Models
         [Required(ErrorMessage = "Le champ {0} ets obligatoire.")]
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
-        [Age(10,ErrorMessage = "Pour le champ {0}. Vous deves avoir plus de {1} ans")]//3
+        [Age(10,MaximumAge = 100,ErrorMessage = "Pour le champ {0}. Vous deves avoir plus de {1} ans et moins {2}")]//3
         public DateTime BirthDate { get; set; } // ? - campo pode ser nulo
 
 
