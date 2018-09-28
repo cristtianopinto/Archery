@@ -101,7 +101,7 @@
   'error': function() {
     /// <signature>
     ///   <summary>Takes a string and throws an exception containing it.</summary>
-    ///   <param name="message" type="String">The message to send out.</param>
+    ///   <param name="text" type="String">The text to send out.</param>
     /// </signature>
   },
   'extend': function() {

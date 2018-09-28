@@ -7,12 +7,13 @@ using System.Web.Mvc;
 
 namespace Archery.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Title = "Index";
+            Session["test"] = "rtest";//creation d'un session
+            ViewBag.Title = "Index"; 
             return View();
         }
 

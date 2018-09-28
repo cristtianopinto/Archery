@@ -1,0 +1,11 @@
+﻿@using Archery.Tools;
+@{
+    Layout = null;
+    var message = TempData["MESSAGE"] as Message;
+}
+@if (message != null)//so vai aparecer se ela existir
+{
+    <div class="alert alert-@(message.MessageType==MessageType.SUCCES?"success":"danger")">
+        @message.Text
+    </div>
+}
