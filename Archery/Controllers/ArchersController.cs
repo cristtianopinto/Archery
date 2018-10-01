@@ -25,8 +25,9 @@ namespace Archery.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]//seguranca olhar form Subscribe
         public ActionResult Subscribe([Bind(Exclude ="ID")]Archer archer)
-        {           
-            archer.Password = CreateMD5(archer.Password);
+        {
+            //archer.Password = CreateMD5(archer.Password);
+            
             if (DateTime.Now.AddYears(-9) <= archer.BirthDate)
             {
                 /* 1
@@ -41,7 +42,9 @@ namespace Archery.Controllers
             {
                 //..
                 //TODO .. ajoute archer
-                
+                string aux = archer.Password;
+                archer.Password = Password.HashMD(aux);
+                archer.Password.HashMD();
                 db.Archers.Add(archer);
                 db.SaveChanges();
                 //ViewBag.Message = "Contact Ajouter";
