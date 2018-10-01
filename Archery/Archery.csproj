@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201810010725550_Init.Designer.cs">
       <DependentUpon>201810010725550_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810010948205_MigrationEmail.cs" />
+    <Compile Include="Migrations\201810010948205_MigrationEmail.Designer.cs">
+      <DependentUpon>201810010948205_MigrationEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\Info.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Tools\Message.cs" />
     <Compile Include="Tools\Extension.cs" />
     <Compile Include="Validators\Age.cs" />
+    <Compile Include="Validators\Email.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -173,6 +178,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810010725550_Init.resx">
       <DependentUpon>201810010725550_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810010948205_MigrationEmail.resx">
+      <DependentUpon>201810010948205_MigrationEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

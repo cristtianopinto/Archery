@@ -40,22 +40,33 @@ namespace Archery.Controllers
             
             if(ModelState.IsValid)
             {
-                //..
-                //TODO .. ajoute archer
-                
                 //archer.Password = Extension.HashMD(archer.Password);
+                /*
+                if(db.Archers.Count(x=>x.Mail == archer.Mail) != 0)
+                {
+                    Display("Vous avez déjà un compte assigné à cet email");
+                    return View();
+                }
+                else
+                {
+                    archer.Password = archer.Password.HashMD();
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.Archers.Add(archer);
+                    db.SaveChanges();
+                    db.Configuration.ValidateOnSaveEnabled = true;
+                    Display("Archer enregistré");
+                } */
                 archer.Password = archer.Password.HashMD();
-
                 db.Configuration.ValidateOnSaveEnabled = false;
                 db.Archers.Add(archer);
                 db.SaveChanges();
                 db.Configuration.ValidateOnSaveEnabled = true;
-
+                Display("Archer enregistré");
                 //ViewBag.Message = "Contact Ajouter";
                 //GestionMessage("ok");
                 //TempData["typeMessage"] = "ok";
                 //TempData["typeMessage"] = new Message(0, "Contact Ajouter");
-                Display("Archer enregistré");
+
                 return RedirectToAction("index", "home");
             }
             else

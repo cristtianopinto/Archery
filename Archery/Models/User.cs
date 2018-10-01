@@ -18,6 +18,7 @@ namespace Archery.Models
         [Required(ErrorMessage = "Le champ {0} ets obligatoire.")]
         [StringLength(150,ErrorMessage ="Le champ {0} doit contenir {1} caractères max.")]
         [Display(Name = "Adresse mail")]
+        [Email(ErrorMessage = "Vous avez déjà un compte assigné à cet email")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage ="Le format n'est pas bon")]
