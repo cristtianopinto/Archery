@@ -149,11 +149,23 @@
     <Compile Include="Migrations\201810010948205_MigrationEmail.Designer.cs">
       <DependentUpon>201810010948205_MigrationEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810011501595_AddShotterTourmant.cs" />
+    <Compile Include="Migrations\201810011501595_AddShotterTourmant.Designer.cs">
+      <DependentUpon>201810011501595_AddShotterTourmant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810011506311_AddTournamentLocation.cs" />
+    <Compile Include="Migrations\201810011506311_AddTournamentLocation.Designer.cs">
+      <DependentUpon>201810011506311_AddTournamentLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Info.cs" />
     <Compile Include="Models\Archer.cs" />
+    <Compile Include="Models\Shooter.cs" />
+    <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Message.cs" />
     <Compile Include="Tools\Extension.cs" />
@@ -188,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810010948205_MigrationEmail.resx">
       <DependentUpon>201810010948205_MigrationEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810011501595_AddShotterTourmant.resx">
+      <DependentUpon>201810011501595_AddShotterTourmant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810011506311_AddTournamentLocation.resx">
+      <DependentUpon>201810011506311_AddTournamentLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

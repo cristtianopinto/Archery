@@ -8,11 +8,11 @@ using System.Web;
 
 namespace Archery.Models
 {
-    public abstract class User
+    public abstract class User : BaseModel
     {
         
 
-        public int ID { get; set; }
+        
 
 
         [Required(ErrorMessage = "Le champ {0} ets obligatoire.")]
