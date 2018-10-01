@@ -9,7 +9,7 @@ namespace Archery.Areas.BackOffice.Controllers
     public class WeaponController : Controller
     {
         // GET: BackOffice/Weapon
-        public ActionResult Subscribe()
+        public ActionResult Ajouter()
         {
             return View();
         }

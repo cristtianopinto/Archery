@@ -17,7 +17,7 @@ namespace Archery.Areas.BackOffice
             context.MapRoute(
                 "BackOffice_Weapon",
                 "BackOffice/{controller}/{action}",
-                defaults: new { controller = "Weapon", action = "Subscribe" }
+                defaults: new { controller = "Weapon", action = "Ajouter" }
             );
 
             context.MapRoute(
