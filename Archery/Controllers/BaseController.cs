@@ -22,7 +22,7 @@ namespace Archery.Controllers
             var m = new Message(type, text);
             TempData["MESSAGE"] = m;
         }
-
+        /*
         public static string CreateMD5(string input)
         {
             // Use input string to calculate MD5 hash
@@ -40,7 +40,7 @@ namespace Archery.Controllers
                 return sb.ToString();
             }
         }
-
+        */
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);

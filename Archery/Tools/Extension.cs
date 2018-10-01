@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Archery.Tools
 {
-    public static class Password
+    public static class Extension
     {
-        public static string HashMD(this string value)
+        public static string HashMD(this string value)//on besoin du this pour declarer un méthode d'extention
         {
             byte[] valueBytes = System.Text.Encoding.Default.GetBytes(value);//tableaux des bytes
 
@@ -25,5 +25,7 @@ namespace Archery.Tools
             }
             return result;
         }
+
+        
     }
 }

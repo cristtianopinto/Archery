@@ -42,11 +42,15 @@ namespace Archery.Controllers
             {
                 //..
                 //TODO .. ajoute archer
-                string aux = archer.Password;
-                archer.Password = Password.HashMD(aux);
-                archer.Password.HashMD();
+                
+                //archer.Password = Extension.HashMD(archer.Password);
+                archer.Password = archer.Password.HashMD();
+
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.Archers.Add(archer);
                 db.SaveChanges();
+                db.Configuration.ValidateOnSaveEnabled = true;
+
                 //ViewBag.Message = "Contact Ajouter";
                 //GestionMessage("ok");
                 //TempData["typeMessage"] = "ok";
