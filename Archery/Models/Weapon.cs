@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Archery.Validators;
 
 namespace Archery.Models
 {
@@ -10,6 +11,7 @@ namespace Archery.Models
     {
         [Required]
         [Display(Name = "Nom de l'arme")]
+        [Arme(ErrorMessage = "Le {0} est déjà registrer.")]
         public string Name { get; set; }
 
         [Display(Name = "Tournois")]

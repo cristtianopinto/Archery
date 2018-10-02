@@ -6,24 +6,16 @@
 
 
 @using (Html.BeginForm())
-{
-    @*
-        <div class="text-danger">
-            @Html.ValidationSummary(null, new { @})
-        </div>*@
-    
-    @Html.AntiForgeryToken()
-    
+{ 
+    @Html.AntiForgeryToken()    
     <div class="panel panel-primary">
         <div class="panel-heading">@ViewBag.TitleFormulaire </div>
         <div class="panel-body">
 
             @RenderSection("Formulaire", false)<!--defini a obrigatoriedade -->
 
-            
         </div>
     </div>
-
 }
 @section SectionScripts{
     <script src="~/Scripts/jquery.validate.min.js"></script><!--Para fazer a validacao de campos no lado cliente -->

@@ -113,7 +113,11 @@
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Weapon\Subscribe.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Weapons\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Weapons\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Weapons\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Weapons\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Weapons\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -135,7 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\BackOffice\Controllers\WeaponController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\WeaponsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ArchersController.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="Tools\Message.cs" />
     <Compile Include="Tools\Extension.cs" />
     <Compile Include="Validators\Age.cs" />
+    <Compile Include="Validators\Arme.cs" />
     <Compile Include="Validators\Email.cs" />
   </ItemGroup>
   <ItemGroup>

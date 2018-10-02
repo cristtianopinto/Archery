@@ -13,13 +13,7 @@ namespace Archery.Areas.BackOffice
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
-        {
-            context.MapRoute(
-                "BackOffice_Weapon",
-                "BackOffice/{controller}/{action}",
-                defaults: new { controller = "Weapon", action = "Ajouter" }
-            );
-
+        {      
             context.MapRoute(
                 "BackOffice_default",
                 "BackOffice/{controller}/{action}/{id}",
