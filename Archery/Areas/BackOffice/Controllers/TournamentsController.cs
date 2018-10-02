@@ -17,7 +17,7 @@ namespace Archery.Areas.BackOffice.Controllers
 
         // GET: BackOffice/Tournaments
         public ActionResult Index()
-        {
+        {            
             return View(db.Tournaments.ToList());
         }
 
