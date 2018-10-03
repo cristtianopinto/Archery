@@ -119,7 +119,7 @@ namespace Archery.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }            
-            Tournament tournament = db.Tournaments.Find(id);
+            Tournament tournament = db.Tournaments.Find(id);            
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -132,7 +132,13 @@ namespace Archery.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tournament tournament = db.Tournaments.Find(id);
+            Tournament tournament = db.Tournaments.Include("Weapons").SingleOrDefault(x => x.ID == id);
+            tournament.Weapons.Clear();
+            var shooters = db.Shooters.Where(x => x.TournamentID == id);
+            foreach(var item in shooters)
+            {
+                db.Entry(item).State = EntityState.Deleted;
+            }
             db.Tournaments.Remove(tournament);
             db.SaveChanges();
             return RedirectToAction("Index");

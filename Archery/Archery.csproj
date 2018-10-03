@@ -403,9 +403,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AuthenticationController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\TournamentsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\WeaponsController.cs" />
+    <Compile Include="Areas\BackOffice\Models\AuthenticationViewModels.cs" />
     <Compile Include="Bootstrap Html Helpers\HelperMethods.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -482,7 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\BackOffice\Models\" />
+    <Folder Include="Areas\BackOffice\Views\Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810010725550_Init.resx">

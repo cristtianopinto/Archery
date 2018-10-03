@@ -65,13 +65,16 @@
         <dd>
             @Html.Raw(Model.Description)
         </dd>
+        <dt>
+            Arcs
+        </dt>
         <dd>
             <table class="table table-striped">
                 @foreach (var item in Model.Weapons)
                 {
                     <tr><td>@item.Name</td></tr>
                 }
-                
+
             </table>
         </dd>
     </dl>
