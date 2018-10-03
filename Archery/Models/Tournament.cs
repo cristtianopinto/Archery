@@ -23,11 +23,13 @@ namespace Archery.Models
         [Required]
         [Display(Name = "Début")]
         [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:MM}")]
         public DateTime StartDate { get; set; }
 
         [Required]
         [Display(Name = "Fin")]
         [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:MM}")]
         public DateTime EndDate { get; set; }
 
         [Required]
