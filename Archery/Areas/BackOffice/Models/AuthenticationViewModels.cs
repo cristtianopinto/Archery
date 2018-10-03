@@ -9,9 +9,12 @@ namespace Archery.Areas.BackOffice.Models
 {
     public class AuthenticationLoginViewModels
     {
+        [Display(Name ="Login")]
         [Required(ErrorMessage = "Le champ {0} ets obligatoire.")]       
         public string Mail { get; set; }
+        [Display(Name = "Mot de Passe")]
         [Required(ErrorMessage = "Le champ {0} ets obligatoire.")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
