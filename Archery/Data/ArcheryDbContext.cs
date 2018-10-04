@@ -21,5 +21,7 @@ namespace Archery.Data
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Shooter> Shooters { get; set; }
+
+        public DbSet<TournamentPicture> TournamentPictures { get; set; }
     }
 }
