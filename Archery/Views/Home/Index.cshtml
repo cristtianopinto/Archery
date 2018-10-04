@@ -11,7 +11,11 @@
     {
     <div class="panel col-sm-3">
         <div class="panel-body" style="background-color:lightslategray; color:white; max-height:700px;">
-            <img src="http://www.ffta.fr/sites/ffta/files/styles/image-content/public/field/image/rg_mili.jpg?itok=hoW1BaMO" alt="Alternate Text" width="220px;"height="160px;" />
+            @if (item.Pictures.Count > 0 )
+            {
+                <img src="data:@item.Pictures.First().ContentType;base64,@Convert.ToBase64String(item.Pictures.First().Content)"class="img-thumbnail" />
+            }
+                
             <h4 class="text-center">
                 @Html.DisplayFor(modelItem => item.Name)
             </h4>
@@ -33,12 +37,13 @@
                         <li>@weapon.Name</li>
                     }
                 </ul>
-            }           
+            }
             <br />
             <br />
             @Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(modelItem => item.Price)
             <br />
             <br />
+            <a id="logout" href="#" class="btn btn-info"> <i class="glyphicon glyphicon-info-sign"> Details</i> </a>
             <a id="logout" href="#" class="btn btn-info"> <i class="glyphicon glyphicon-apple"> S'incrire</i> </a>
         </div>
     </div>

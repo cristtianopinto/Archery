@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -30,7 +31,7 @@ namespace Archery.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tournament tournament = db.Tournaments.Include("Weapons").SingleOrDefault(x => x.ID == id);
+            Tournament tournament = db.Tournaments.Include("Pictures").Include("Weapons").SingleOrDefault(x => x.ID == id);
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -80,7 +81,7 @@ namespace Archery.Areas.BackOffice.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Tournament tournament = db.Tournaments.Find(id);
-            Tournament tournament = db.Tournaments.Include("Weapons").SingleOrDefault(x => x.ID == id);//para incluir a lista de armas
+            Tournament tournament = db.Tournaments.Include("Weapons").Include("Pictures").SingleOrDefault(x => x.ID == id);//para incluir a lista de armas
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -100,7 +101,7 @@ namespace Archery.Areas.BackOffice.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(tournament).State = EntityState.Modified;
-                db.Tournaments.Include("Weapons").SingleOrDefault(x => x.ID == tournament.ID);
+                db.Tournaments.Include("Weapons").Include("Pictures").SingleOrDefault(x => x.ID == tournament.ID);
                 if (weaponsID != null)
                     tournament.Weapons = db.Weapons.Where(x => weaponsID.Contains(x.ID)).ToList();
                 else
@@ -145,7 +146,24 @@ namespace Archery.Areas.BackOffice.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult AddPictures(HttpPostedFileBase picture, int id)
+        {
+            if (picture?.ContentLength > 0)
+            {
+                TournamentPicture tp = new TournamentPicture();
+                tp.ContentType = picture.ContentType;
+                tp.Name = picture.FileName;
+                tp.TournamentID = id;
+                using (var reader = new BinaryReader(picture.InputStream))
+                {
+                    tp.Content = reader.ReadBytes(picture.ContentLength);
+                }
+                db.TournamentPictures.Add(tp);
+                db.SaveChanges();
+                return RedirectToAction("edit","tournaments", new { id = id});
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

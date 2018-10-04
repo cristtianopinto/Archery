@@ -14,7 +14,7 @@ namespace Archery.Controllers
         {
             Session["test"] = "rtest";//creation d'un session
             ViewBag.Title = "Index"; 
-            return View(db.Tournaments.Include("Weapons").OrderBy(x=>x.StartDate).ToList());
+            return View(db.Tournaments.Include("Weapons").Include("Pictures").OrderBy(x=>x.StartDate).ToList());
         }
 
         //[Route("a-propos")]
