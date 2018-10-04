@@ -13,9 +13,13 @@ namespace Archery
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();//IMPORTANTE PRA USAR OS [ROUTE("<rota>")]
-            ///*
-            ///
-           
+                                           ///*
+                                           ///
+            routes.MapRoute(
+                 name: "DetailTournoiRoute",
+                 url: "details-tournois{nom}",
+                 defaults: new { controller = "Home", action = "Details" }
+             );
             routes.MapRoute(
                 name: "AboutRoute",
                 url: "a-propos",
