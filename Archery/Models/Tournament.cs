@@ -44,6 +44,8 @@ namespace Archery.Models
         [AllowHtml]
         public string Description { get; set; }
 
+        
+
         [Display(Name = "Armes")]
         public ICollection<Weapon> Weapons { get; set; }
 

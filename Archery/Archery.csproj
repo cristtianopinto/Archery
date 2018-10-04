@@ -449,6 +449,7 @@
     <Compile Include="Models\Archer.cs" />
     <Compile Include="Models\Shooter.cs" />
     <Compile Include="Models\Tournament.cs" />
+    <Compile Include="Models\TournamentPicture.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
