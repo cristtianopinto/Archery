@@ -1,8 +1,47 @@
-﻿
+﻿@model IEnumerable<Archery.Models.Tournament>
 @{
     //Layout = "~/Views/Shared/_Layout.cshtml";
     //this.Output.WriteLine("<h1>test</h1>");
+    
 }
 
-<h1>Bonjour!</h1>
+<h1>Tournois:</h1>
+<div class="container">
+    @foreach (var item in Model)
+    {
+    <div class="panel col-sm-3">
+        <div class="panel-body" style="background-color:lightslategray; color:white; max-height:700px;">
+            <img src="http://www.ffta.fr/sites/ffta/files/styles/image-content/public/field/image/rg_mili.jpg?itok=hoW1BaMO" alt="Alternate Text" width="220px;"height="160px;" />
+            <h4 class="text-center">
+                @Html.DisplayFor(modelItem => item.Name)
+            </h4>
+            <br />
+            @Html.DisplayNameFor(model => model.Location) : @Html.DisplayFor(modelItem => item.Location)
+            <br />
+            @Html.DisplayNameFor(model => model.StartDate) : @Html.DisplayFor(modelItem => item.StartDate)
+            <br />
+            @Html.DisplayNameFor(model => model.EndDate) : @Html.DisplayFor(modelItem => item.EndDate)
+            <br />
+            @Html.DisplayNameFor(model => model.Description) : @Html.Raw(item.Description)
+            <br />
+            @Html.DisplayNameFor(model => model.Weapons) :
+            @if (item.Weapons != null)
+            {
+                <ul>
+                    @foreach (var weapon in item.Weapons)
+                    {
+                        <li>@weapon.Name</li>
+                    }
+                </ul>
+            }           
+            <br />
+            <br />
+            @Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(modelItem => item.Price)
+            <br />
+            <br />
+            <a id="logout" href="#" class="btn btn-info"> <i class="glyphicon glyphicon-apple"> S'incrire</i> </a>
+        </div>
+    </div>
+    }
+</div>
 
