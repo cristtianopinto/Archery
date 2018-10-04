@@ -11,14 +11,13 @@ namespace Archery.Areas.BackOffice
                 return "BackOffice";
             }
         }
-
         public override void RegisterArea(AreaRegistrationContext context) 
         {      
             context.MapRoute(
                 "BackOffice_default",
                 "BackOffice/{controller}/{action}/{id}",
                 new {controller="Dashboard", action = "Index", id = UrlParameter.Optional }
-            );
+            );            
         }
     }
 }

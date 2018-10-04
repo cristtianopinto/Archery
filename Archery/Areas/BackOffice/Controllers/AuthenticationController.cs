@@ -33,11 +33,17 @@ namespace Archery.Areas.BackOffice.Controllers
                 }
                 else
                 {
+                    Session["ADMINISTRATOR"] = admin;  
                     return RedirectToAction("Index", "Dashboard",new { area = "Backoffice"});
                 }
                
             }
             return View();
+        }
+        public ActionResult Logout()
+        {
+            Session.Remove("ADMINISTRATOR");
+            return RedirectToAction("index","home", new { area=""});
         }
     }
 }

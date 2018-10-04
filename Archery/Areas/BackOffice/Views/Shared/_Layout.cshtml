@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var admin = Session["ADMINISTRATOR"] as Archery.Models.Administrator;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -40,11 +43,16 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+                <ul class="nav navbar-nav navbar-right" style="color: azure; padding-top:10px;">
+                    Bonjour, @admin.FirstName @admin.LastName
+                    <a id="logout" href="@Url.Action("Logout","authentication")" class="btn btn-info"> <i class="glyphicon glyphicon-log-out"></i> </a>
+                </ul>
+            </div>           
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="container body-content" style="padding:50px;">
+        
         @Html.Partial("_PartialDisplay")
         @RenderBody()
         <hr />
@@ -58,5 +66,21 @@
     <!--<script src="~/Scripts/jquery.validate.globalize.min.js"></script>-->
     <!--<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>-->
     @RenderSection("SectionScripts", false)
+    <script>//script jquery de confirmation pour déconnecter.
+        /*Version Jquery
+        $("#logout").click(function () {
+            if (confirm("Voulez-vous vous déconnecter?") == false) {
+                return false;
+            }
+        });*/
+        /*version JS pure - */
+         const btn = document.querySelector('#logout');
+         btn.addEventListener('click', ev => {
+            if (confirm("Voulez-vous vous déconnecter?")==false){
+                ev.preventDefault();
+            }
+        });
+         
+    </script>
 </body>
-    </html>
+</html>
