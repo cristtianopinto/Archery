@@ -164,6 +164,15 @@ namespace Archery.Areas.BackOffice.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+        public ActionResult DeletPictures(int? id)
+        {
+            TournamentPicture tp = db.TournamentPictures.SingleOrDefault(x => x.ID == id);
+            var tpId = tp.TournamentID;
+            db.TournamentPictures.Remove(tp);
+            db.Entry(tp).State = EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction("edit", "tournaments", new { id = tpId });
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
