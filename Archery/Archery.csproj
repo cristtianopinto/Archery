@@ -442,6 +442,10 @@
     <Compile Include="Migrations\201810020936039_MiseAJoutTournament.Designer.cs">
       <DependentUpon>201810020936039_MiseAJoutTournament.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810041018197_AddTournamentPictures.cs" />
+    <Compile Include="Migrations\201810041018197_AddTournamentPictures.Designer.cs">
+      <DependentUpon>201810041018197_AddTournamentPictures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -506,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810020936039_MiseAJoutTournament.resx">
       <DependentUpon>201810020936039_MiseAJoutTournament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041018197_AddTournamentPictures.resx">
+      <DependentUpon>201810041018197_AddTournamentPictures.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
