@@ -104,9 +104,14 @@
             {
                 foreach (var picture in Model.Pictures)
                 {
-            <div class="col-md-3">
-                <p>@picture.Name <a href="@Url.Action("DeletPictures",new { id = picture.ID})"><i class="glyphicon glyphicon-trash"></i></a></p>
+            <div class="col-md-3" id="div-@picture.ID">
+                <br />
+
                 <img src="data:@picture.ContentType;base64,@Convert.ToBase64String(picture.Content)" class="img-thumbnail" />
+                @*
+                    <p>@picture.Name <a class="delete" href="@Url.Action("DeletPictures",new { id = picture.ID})"><i class="glyphicon glyphicon-trash"></i></a></p>
+                *@
+                <p>@picture.Name <a href="#" class="delete" data-id="@picture.ID" ><i class="glyphicon glyphicon-trash"></i></a></p>
             </div>
                    
                 }
@@ -126,6 +131,20 @@
                 $('#EndDate').datetimepicker({ lang: 'fr', step: 15, format: 'd/m/y H:i' });
                 tinymce.init({
                     selector: '#Description'
+                });
+            });
+            $('.delete').click(function () {
+                var idPicture = $(this).data("id");//recuperar id
+                alert(idPicture);
+                $.ajax({
+                      url: '@Url.Action("deletePicture", "Tournaments")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { id: idPicture },
+                    success: function (obj) {
+                        alert("l'image " + obj.Name + " a été supprimée.");
+                        $("#div-" + idPicture).fadeOut();
+                    }
                 });
             });
         </script>

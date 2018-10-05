@@ -162,16 +162,21 @@ namespace Archery.Areas.BackOffice.Controllers
                 db.SaveChanges();
                 return RedirectToAction("edit","tournaments", new { id = id});
             }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return RedirectToAction("edit", "tournaments", new { id = id });
         }
-        public ActionResult DeletPictures(int? id)
+        [HttpPost]
+        public ActionResult DeletePicture(int? id)
         {
-            TournamentPicture tp = db.TournamentPictures.SingleOrDefault(x => x.ID == id);
+            if (id == null)
+                return HttpNotFound();
+            TournamentPicture tp = db.TournamentPictures.SingleOrDefault(x => x.ID == id);            
             var tpId = tp.TournamentID;
             db.TournamentPictures.Remove(tp);
             db.Entry(tp).State = EntityState.Deleted;
             db.SaveChanges();
-            return RedirectToAction("edit", "tournaments", new { id = tpId });
+            return Json(tp);
+            //return RedirectToAction("edit", "tournaments", new { id = tpId });
         }
         protected override void Dispose(bool disposing)
         {
