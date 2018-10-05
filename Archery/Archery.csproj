@@ -410,11 +410,13 @@
     <Compile Include="Areas\BackOffice\Controllers\WeaponsController.cs" />
     <Compile Include="Areas\BackOffice\Models\AuthenticationViewModels.cs" />
     <Compile Include="Bootstrap Html Helpers\HelperMethods.cs" />
+    <Compile Include="Controllers\AuthenticationUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ArchersController.cs" />
     <Compile Include="Data\ArcheryDbContext.cs" />
     <Compile Include="Filters\AuthenticationAttribute.cs" />
+    <Compile Include="Filters\AuthenticationUserAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -448,6 +450,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AuthenticationViewModels.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Info.cs" />
     <Compile Include="Models\Archer.cs" />
@@ -483,6 +486,8 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\AuthenticationUser\Login.cshtml" />
+    <Content Include="Views\Archers\Shooter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

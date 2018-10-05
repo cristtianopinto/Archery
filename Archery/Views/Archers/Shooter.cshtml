@@ -1,0 +1,99 @@
+﻿@model Archery.Models.Tournament
+@{
+    ViewBag.Title = "S'inscrire";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Inscription:</h2>
+        <div class="panel-body table-bordered" style="background-color:lightslategray; color:white;">
+            <h4>Tournament</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ArcherCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ArcherCount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Description)
+                </dd>
+                <dt>
+                    Arcs
+                </dt>
+                <dd>
+                    <table class="table table-striped" style="color:black;">
+                        @foreach (var item in Model.Weapons)
+                        {
+                            <tr><td>@item.Name</td></tr>
+                        }
+                    </table>
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Pictures:</h2>
+        <div class="panel-body">
+            @if (Model.Pictures.Count > 0)
+            {
+                foreach (var item in Model.Pictures)
+                {
+                    <div class="col-md-6">
+                        <img src="data:@item.ContentType;base64,@Convert.ToBase64String(item.Content)" class="img-thumbnail" />
+                    </div>
+                }
+            }
+            <a style="" href="@Url.Action("Shooter","Archers", new {@*objeto para criacao de shooter*@})" class="btn btn-info"> <i class="glyphicon glyphicon-apple"> S'incrire</i> </a>
+        </div>
+    </div>
+</div>
+

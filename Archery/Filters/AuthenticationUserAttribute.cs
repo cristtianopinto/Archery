@@ -7,15 +7,16 @@ using System.Web.Mvc;
 namespace Archery.Filters
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    public class AuthenticationAttribute : ActionFilterAttribute
+    public class AuthenticationUserAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.HttpContext.Session["ADMINISTRATOR"] == null)
+           
+            if (filterContext.HttpContext.Session["USER"] == null)
             {
-                filterContext.Result = new RedirectResult(@"\backoffice\authentication\login");
+                filterContext.Result = new RedirectResult(@"\authenticationuser\login");
                 //filterContext.Result = new RedirectToRouteResult(new { controller="authentication",action="login",area="backoffice"});
-            }            
+            }
         }
     }
 }

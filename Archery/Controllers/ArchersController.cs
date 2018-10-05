@@ -13,8 +13,6 @@ namespace Archery.Controllers
 {
     public class ArchersController : BaseController
     {
-        
-        
         //metodo que vai representar uma acao
         // GET: Archer
         public ActionResult Subscribe()
@@ -79,6 +77,19 @@ namespace Archery.Controllers
             //string.Format("teste");
             
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Shooter()
+        {
+            return View();//todo json
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]//seguranca olhar form Subscribe
+        public ActionResult Shooter(Archer archer, Tournament tournoi, Weapon weapons)
+        {
+            return RedirectToAction("Index", "Home", new { area = "" });//todo json
         }
     }
 }

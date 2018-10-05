@@ -20,7 +20,6 @@ namespace Archery.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(AuthenticationLoginViewModels model)
         {
-
             if (ModelState.IsValid)
             {
                // var hash = model.Password.HashMD();
@@ -45,5 +44,7 @@ namespace Archery.Areas.BackOffice.Controllers
             Session.Remove("ADMINISTRATOR");
             return RedirectToAction("index","home", new { area=""});
         }
+
+       
     }
 }
